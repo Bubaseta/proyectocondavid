@@ -1,0 +1,53 @@
+<!-- <!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Pago con PayPal</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AcQysfW08pF6iFCj65-H1b61UIPEuQTVoZ5_3fDaOPRdFq65LmOBnDn1fz3YlD0JFNii-JKYHy-MZqZE"> </script>
+    <script>
+        // Función para obtener el token de acceso y enviar el formulario
+        function obtenerTokenYEnviarPago() {
+    // Realizar una solicitud AJAX para obtener el token de acceso
+    $.ajax({
+        url: "/proceso",
+        type: "POST",
+        contentType: "application/json",
+        success: function(token) {
+            // Verificar si se pudo obtener el token de acceso
+            if (token) {
+                // Establecer el token de acceso en una cookie
+                document.cookie = "token=" + token + ";path=/";
+                // Enviar el formulario de pago
+                document.getElementById("payment-form").submit();
+            } else {
+                // Manejar errores al obtener el token de acceso
+                alert("Error al obtener el token de acceso");
+            }
+        }
+    });
+}
+        
+    </script>
+</head>
+<body>
+    <h1>Formulario de Pago con PayPal</h1>
+    <form id="payment-form" action="/form/proceso" th:object="${paymentRequest}" method="POST">
+        <label for="card-holder-name">Nombre del Titular de la Tarjeta:</label><br>
+        <input type="text" id="card-holder-name" th:field="*{cardHolderName}" required><br><br>
+        <label for="card-number">Número de Tarjeta:</label><br>
+        <input type="text" id="card-number" th:field="*{cardNumber}" required><br><br>
+        <label for="card-expiry">Fecha de Vencimiento (MM/AA):</label><br>
+        <input type="text" id="card-expiry" th:field="*{cardExpiry}" placeholder="MM/AA" required><br><br>
+        <label for="card-cvc">Código de Seguridad (CVV):</label><br>
+        <input type="text" id="card-cvc" th:field="*{cardCvc}" required><br><br>
+        <div id="card-errors" role="alert"></div><br>
+
+        <input type="hidden" id="accessToken" name="accessToken" value="">
+        <button type="button" onclick="obtenerTokenYEnviarPago()">Pagar con PayPal</button>
+    </form>
+</body>
+</html> -->
+
